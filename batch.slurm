@@ -27,15 +27,23 @@ mkdir -p logs
 
 MASTER_ADDR=$(scontrol show hostnames "$SLURM_JOB_NODELIST" | head -n 1)
 export MASTER_ADDR
-export MASTER_PORT=29551
+export MASTER_PORT=$(( 20000 + SLURM_JOB_ID % 20000 )) # 29500, 24192
 
-# export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK # Slurm 22
+# echo "MASTER_ADDR=$MASTER_ADDR  MASTER_PORT=$MASTER_PORT"
+# srun bash -c 'echo "$(hostname): $MASTER_ADDR -> $(getent hosts "$MASTER_ADDR")"'
+# # MASTER_ADDR=g002  MASTER_PORT=29551
+# # g003.irgetas.nu.edu.kz: g002 -> 172.25.1.102    g002
+# # g002.irgetas.nu.edu.kz: g002 -> 172.25.1.102    g002
+
+# # Was needed in Slurm 22, else srun would run 1 CPU per task:
+# export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK
+# # Check CPUs per task:
 # srun bash -c 'echo "$(hostname): nproc=$(nproc) $(taskset -cp $$)"'
 
-export OMP_NUM_THREADS=1 
+export OMP_NUM_THREADS=1
 # Against oversubscription:
-# srun -> node=0 -> task with --cpus-per-task=8 -> torchrun (process) => 
-#   (processes) 
+# srun -> node=0 -> task with --cpus-per-task=8 -> torchrun (process) =>
+#   (processes)
 #       main.py LOCAL_RANK=0 (process) => num_workers=4 (processes)
 #       main.py LOCAL_RANK=1 (process) => num_workers=4 (processes)
 #   Each worker with num_threads=~8 (32 threads) or OMP_NUM_THREADS=1 (8 threads)
