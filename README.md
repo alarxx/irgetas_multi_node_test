@@ -1,6 +1,6 @@
 # Irgetas multi-node test
 
-Minimal multi-node torchrun/NCCL `all_reduce` test.
+Minimal multi-node Slurm/torchrun/NCCL `all_reduce` test.
 
 ---
 
