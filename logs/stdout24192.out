@@ -1,0 +1,54 @@
+rank: 0, local_rank: 0, world_size: 8, device: cuda:0
+rank: 1, local_rank: 1, world_size: 8, device: cuda:1
+rank: 2, local_rank: 2, world_size: 8, device: cuda:2
+rank: 3, local_rank: 3, world_size: 8, device: cuda:3
+rank: 4, local_rank: 0, world_size: 8, device: cuda:0
+rank: 5, local_rank: 1, world_size: 8, device: cuda:1
+rank: 6, local_rank: 2, world_size: 8, device: cuda:2
+rank: 7, local_rank: 3, world_size: 8, device: cuda:3
+
+g001:3002446:3002446 [2] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_0'
+g001:3002446:3002446 [2] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 1 'mlx5_1'
+g001:3002445:3002445 [1] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_0'
+g001:3002447:3002447 [3] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_0'
+g001:3002444:3002444 [0] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_0'
+g001:3002447:3002447 [3] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 1 'mlx5_1'
+g001:3002445:3002445 [1] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 1 'mlx5_1'
+g001:3002444:3002444 [0] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 1 'mlx5_1'
+
+g002:1250111:1250111 [2] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_0'
+g002:1250112:1250112 [3] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_0'
+g002:1250111:1250111 [2] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 1 'mlx5_1'
+g002:1250112:1250112 [3] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 1 'mlx5_1'
+g002:1250109:1250109 [0] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_0'
+g002:1250109:1250109 [0] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 1 'mlx5_1'
+g002:1250110:1250110 [1] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 0 'mlx5_0'
+g002:1250110:1250110 [1] NCCL INFO NET/IB : GPU Direct RDMA Enabled for HCA 1 'mlx5_1'
+
+g002:1250109:1250109 [0] NCCL INFO Connected all trees
+g002:1250110:1250110 [1] NCCL INFO Connected all trees
+g001:3002444:3002444 [0] NCCL INFO Connected all trees
+g001:3002447:3002447 [3] NCCL INFO Connected all trees
+g002:1250111:1250111 [2] NCCL INFO Connected all trees
+g002:1250112:1250112 [3] NCCL INFO Connected all trees
+g001:3002446:3002446 [2] NCCL INFO Connected all trees
+g001:3002445:3002445 [1] NCCL INFO Connected all trees
+
+g001.irgetas.nu.edu.kz rank=0 local_rank=0 result=36.0 OK
+g001.irgetas.nu.edu.kz rank=3 local_rank=3 result=36.0 OK
+g001.irgetas.nu.edu.kz rank=1 local_rank=1 result=36.0 OK
+g001.irgetas.nu.edu.kz rank=2 local_rank=2 result=36.0 OK
+
+g002.irgetas.nu.edu.kz rank=6 local_rank=2 result=36.0 OK
+g002.irgetas.nu.edu.kz rank=5 local_rank=1 result=36.0 OK
+g002.irgetas.nu.edu.kz rank=7 local_rank=3 result=36.0 OK
+g002.irgetas.nu.edu.kz rank=4 local_rank=0 result=36.0 OK
+
+g001:3002444:3002444 [0] NCCL INFO comm 0x559919c951f0 rank 0 nranks 8 cudaDev 0 busId 4000 - Destroy COMPLETE
+g001:3002447:3002447 [3] NCCL INFO comm 0x5559fb4f2ba0 rank 3 nranks 8 cudaDev 3 busId e4000 - Destroy COMPLETE
+g001:3002445:3002445 [1] NCCL INFO comm 0x564f69a6d9d0 rank 1 nranks 8 cudaDev 1 busId 64000 - Destroy COMPLETE
+g001:3002446:3002446 [2] NCCL INFO comm 0x560607956cb0 rank 2 nranks 8 cudaDev 2 busId 84000 - Destroy COMPLETE
+g002:1250109:1250109 [0] NCCL INFO comm 0x5590fe2ab980 rank 4 nranks 8 cudaDev 0 busId 4000 - Destroy COMPLETE
+g002:1250112:1250112 [3] NCCL INFO comm 0x559f48de70a0 rank 7 nranks 8 cudaDev 3 busId e4000 - Destroy COMPLETE
+g002:1250111:1250111 [2] NCCL INFO comm 0x55adfcbc20a0 rank 6 nranks 8 cudaDev 2 busId 84000 - Destroy COMPLETE
+g002:1250110:1250110 [1] NCCL INFO comm 0x55b0aa0692a0 rank 5 nranks 8 cudaDev 1 busId 64000 - Destroy COMPLETE
