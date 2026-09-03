@@ -2,6 +2,8 @@
 
 Minimal multi-node Slurm/torchrun/NCCL `all_reduce` test.
 
+https://hpc.nu.edu.kz/
+
 ---
 
 ```sh
