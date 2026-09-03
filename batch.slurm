@@ -5,10 +5,9 @@
 
 #SBATCH --partition=H100
 #SBATCH --qos=issai-h100
-#SBATCH --nodes=2
+#SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-# #SBATCH --gpus-per-task=h100:4
-#SBATCH --gres=gpu:h100:4 # per node
+#SBATCH --gres=gpu:h100:1 # per node
 
 #SBATCH --cpus-per-task=8 # please count CPUs/GPUs number when used with torchrun (process-per-GPU) 
 #SBATCH --mem=32G # per node, please count mem/GPUs when used with torchrun
@@ -25,8 +24,7 @@ mkdir -p logs
 
 # srun bash -c 'nvidia-smi'
 
-MASTER_ADDR=$(scontrol show hostnames "$SLURM_JOB_NODELIST" | head -n 1)
-export MASTER_ADDR
+export MASTER_ADDR=$(scontrol show hostnames "$SLURM_JOB_NODELIST" | head -n 1)
 export MASTER_PORT=$(( 20000 + SLURM_JOB_ID % 20000 )) # 29500, 24192
 
 # echo "MASTER_ADDR=$MASTER_ADDR  MASTER_PORT=$MASTER_PORT"
